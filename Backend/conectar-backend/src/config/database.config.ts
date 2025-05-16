@@ -3,7 +3,7 @@ import { User } from '../users/dto/entities/user.entity';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  // Para usar Supabase, configure assim:
+
   host: process.env.DB_HOST || 'db.supabase.co',
   port: Number(process.env.DB_PORT) || 5432,
   username: process.env.DB_USERNAME || 'supabase_user',
