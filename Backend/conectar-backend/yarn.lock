@@ -1046,6 +1046,11 @@
     "@types/jsonwebtoken" "9.0.7"
     jsonwebtoken "9.0.2"
 
+"@nestjs/mapped-types@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmmirror.com/@nestjs/mapped-types/-/mapped-types-2.1.0.tgz#b9b536b7c3571567aa1d0223db8baa1a51505a19"
+  integrity sha512-W+n+rM69XsFdwORF11UqJahn4J3xi4g/ZEOlJNL6KoW5ygWSmBB2p0S2BZ4FQeS/NDH72e6xIcu35SfJnE8bXw==
+
 "@nestjs/passport@^11.0.5":
   version "11.0.5"
   resolved "https://registry.npmmirror.com/@nestjs/passport/-/passport-11.0.5.tgz"
@@ -2211,6 +2216,14 @@ base64-js@^1.3.1:
   resolved "https://registry.npmmirror.com/base64-js/-/base64-js-1.5.1.tgz"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
+bcrypt@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmmirror.com/bcrypt/-/bcrypt-6.0.0.tgz#86643fddde9bcd0ad91400b063003fa4b0312835"
+  integrity sha512-cU8v/EGSrnH+HnxV2z0J7/blxH8gq7Xh2JFT6Aroax7UohdmiJJlxApMxtKfuI7z68NvvVcmR78k2LbT6efhRg==
+  dependencies:
+    node-addon-api "^8.3.0"
+    node-gyp-build "^4.8.4"
+
 bin-version-check@^5.1.0:
   version "5.1.0"
   resolved "https://registry.npmmirror.com/bin-version-check/-/bin-version-check-5.1.0.tgz"
@@ -2627,12 +2640,13 @@ concat-stream@^1.5.2:
     "@nestjs/config" "^4.0.2"
     "@nestjs/core" "^11.0.1"
     "@nestjs/jwt" "^11.0.0"
+    "@nestjs/mapped-types" "^2.1.0"
     "@nestjs/passport" "^11.0.5"
     "@nestjs/platform-express" "^11.0.1"
     "@nestjs/typeorm" "^11.0.0"
     class-transformer "^0.5.1"
     class-validator "^0.14.2"
-    conectar-backend "file:../../../../../AppData/Local/Yarn/Cache/v6/npm-conectar-backend-0.0.1-f4197103-018c-4fbd-a751-14f9907b54e0-1747376673130/node_modules/conectar-backend"
+    conectar-backend "file:../../../../../AppData/Local/Yarn/Cache/v6/npm-conectar-backend-0.0.1-535cdea4-adbc-4ddb-b337-0ae37bd7d9ca-1747425527907/node_modules/conectar-backend"
     passport "^0.7.0"
     passport-jwt "^4.0.1"
     reflect-metadata "^0.2.2"
@@ -4993,12 +5007,22 @@ node-addon-api@^7.0.0:
   resolved "https://registry.npmmirror.com/node-addon-api/-/node-addon-api-7.1.1.tgz"
   integrity sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==
 
+node-addon-api@^8.3.0:
+  version "8.3.1"
+  resolved "https://registry.npmmirror.com/node-addon-api/-/node-addon-api-8.3.1.tgz#53bc8a4f8dbde3de787b9828059da94ba9fd4eed"
+  integrity sha512-lytcDEdxKjGJPTLEfW4mYMigRezMlyJY8W4wxJK8zE533Jlb8L8dRuObJFWg2P+AuOIxoCgKF+2Oq4d4Zd0OUA==
+
 node-emoji@1.11.0:
   version "1.11.0"
   resolved "https://registry.npmmirror.com/node-emoji/-/node-emoji-1.11.0.tgz"
   integrity sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A==
   dependencies:
     lodash "^4.17.21"
+
+node-gyp-build@^4.8.4:
+  version "4.8.4"
+  resolved "https://registry.npmmirror.com/node-gyp-build/-/node-gyp-build-4.8.4.tgz#8a70ee85464ae52327772a90d66c6077a900cfc8"
+  integrity sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
 
 node-gyp@8.x:
   version "8.4.1"
