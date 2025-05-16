@@ -1,9 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersService } from './users.service';
+
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { User, Role } from './entities/user.entity';
+
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { User, Role } from './entities/user.entity';
+import { UsersService } from './users.service';
 
 describe('UsersService', () => {
   let service: UsersService;
