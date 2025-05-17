@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getToken } from '@/utils/auth';
 import { useRouter } from 'next/router';
+import { PudimSection, PudimCard } from './style';
 
 export default function PudimPage() {
   const [loading, setLoading] = useState(true);
@@ -33,9 +34,13 @@ export default function PudimPage() {
   if (loading) return <p>Carregando conteúdo do pudim...</p>;
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: html }}
-      style={{ padding: 24 }}
-    />
+  <PudimSection>
+   <PudimCard>
+     <img src="/images/pudim1.jpg" alt="Pudim de leite" />
+     <h3>Pudim de Leite</h3>
+     <p>Clássico, cremoso e irresistível.</p>
+   </PudimCard>
+ </PudimSection>
+ 
   );
 }
