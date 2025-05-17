@@ -61,3 +61,5 @@ export const UserProfile: React.FC = () => {
     </div>
   );
 };
+
+export default UserProfile;

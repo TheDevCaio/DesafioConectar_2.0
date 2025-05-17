@@ -9,3 +9,5 @@ export const List: React.FC = () => {
     </div>
   );
 };
+
+export default List;
