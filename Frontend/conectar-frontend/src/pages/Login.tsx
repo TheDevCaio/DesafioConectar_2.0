@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import api from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { Button } from '../components/Button';
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await api.post('/auth/login', { email, password });
       localStorage.setItem('token', response.data.access_token);
-      // Redireciona baseado no role
       const userRole = response.data.user.role;
       if (userRole === 'admin') {
-        navigate('/users');
+        router.push('/users');
       } else {
-        navigate('/profile');
+        router.push('/profile');
       }
     } catch {
       alert('Falha no login');
