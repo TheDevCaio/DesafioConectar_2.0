@@ -1,4 +1,4 @@
-# Conéctar - Sistema de Gerenciamento de Usuários
+# Galeria do Pudim
 # Como acessar
 
 Acesse a aplicação frontend hospedada em:
