@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.34",
+    "add": "^2.0.6",
     "axios": "^1.9.0",
     "install": "^0.13.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.6.0",
     "styled-components": "^6.1.18",
     "yarn": "^1.22.22"
   },
