@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router'; 
 import { Form, Input, Title, SubmitButton } from './styles';
 
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const router = useRouter(); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,9 +16,9 @@ export const LoginForm: React.FC = () => {
       const userRole = response.data.user.role;
 
       if (userRole === 'admin') {
-        navigate('/users');
+        router.push('/pudim');  
       } else {
-        navigate('/profile');
+        router.push('/pudim');
       }
     } catch {
       alert('Falha no login');

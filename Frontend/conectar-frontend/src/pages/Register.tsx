@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import api from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router'; 
 import { Button } from '../components/Button';
 
-export const Register: React.FC = () => {
+export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await api.post('/auth/register', { name, email, password });
       alert('Cadastro realizado com sucesso!');
-      navigate('/login');
+      router.push('/login'); 
     } catch {
       alert('Erro ao cadastrar');
     }
@@ -47,4 +47,4 @@ export const Register: React.FC = () => {
       <Button type="submit">Cadastrar</Button>
     </form>
   );
-};
+}
