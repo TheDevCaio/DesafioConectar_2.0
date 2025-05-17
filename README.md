@@ -90,7 +90,7 @@ A documentação está disponível no endpoint /api/docs do backend após rodar 
 Diagrama DML do Banco: 
 
 Table users {
-  id integer [pk, increment]        // chave primária, auto incremental
+  id integer [pk, increment]   
   name varchar(255) [not null]
   email varchar(255) [unique, not null]
   password varchar(255)
