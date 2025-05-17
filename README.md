@@ -2,12 +2,12 @@
 # Como acessar
 
 Acesse a aplicação frontend hospedada em:
-https://seuappfrontend.netlify.app (substitua pelo seu link real)
+https://galeriadopudim.netlify.app 
 
 # Como rodar o projeto localmente ou em produção
 
 Clonar o repositório
-git clone [https://github.com/seuusuario/seuprojeto.git](https://github.com/TheDevCaio/DesafioConectar_2.0.git)
+git clone https://github.com/TheDevCaio/DesafioConectar_2.0.git
 Backend: cd Backend/conectar-backend 
 Frontend: cd Frontend/conectar-frontend
 
