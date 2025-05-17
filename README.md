@@ -81,10 +81,27 @@ Banco de dados PostgreSQL ou MySQL configurado e rodando
 Variáveis de ambiente configuradas (exemplo .env nos diretórios backend e frontend)
 
 Frontend (.env)
+
 REACT_APP_API_URL=http://localhost:3000/api
 
 Documentação da API
 A documentação está disponível no endpoint /api/docs do backend após rodar o projeto.
 
+Diagrama DML do Banco: 
+
+Table users {
+  id integer [pk, increment]        // chave primária, auto incremental
+  name varchar(255) [not null]
+  email varchar(255) [unique, not null]
+  password varchar(255)
+  role varchar(50) [not null, default: 'user']
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  updated_at timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
 Contato
 Se precisar de ajuda, dúvidas ou quiser contribuir, fale com o Caio no número 32988648333
+
+
+![Capturar](https://github.com/user-attachments/assets/1741196f-b53b-4f52-9780-a1814bf10134)
+
