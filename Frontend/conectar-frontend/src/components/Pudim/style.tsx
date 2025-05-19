@@ -1,36 +1,36 @@
 import styled from 'styled-components';
 
 export const PudimSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff3e6;
 `;
 
 export const PudimCard = styled.div`
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fff3e6;
+  border: 2px solid #f5c396;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
   text-align: center;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
   }
 
   h3 {
-    margin: 1rem 0 0.5rem;
+    color: #8c4a2f;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
   }
 
   p {
-    padding: 0 1rem 1rem;
-    font-size: 0.9rem;
+    color: #5c3d2e;
+    font-size: 1rem;
   }
 `;

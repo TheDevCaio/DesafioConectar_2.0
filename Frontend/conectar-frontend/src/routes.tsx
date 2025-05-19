@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import PudimPage from './pages/Pudim';
-import Pudim from './components/Pudim';
+import Pudim from './pages/Pudim';
 
-import { Register } from './pages/Register';
+
 import { UserProfile } from './pages/UserProfile';
 import { List } from './pages/List';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 export default function AppRoutes() {
   return (

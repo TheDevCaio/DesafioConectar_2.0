@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -46,4 +46,13 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     min-height: 100vh;
   }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+
 `;

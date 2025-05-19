@@ -17,13 +17,13 @@ export default function PudimPage() {
 
     const fetchPudim = async () => {
       try {
-        const res = await fetch('https://www.pudim.com.br/');
+        const res = await fetch('/api/pudim');
         const text = await res.text();
         setHtml(text);
-        setLoading(false);
       } catch (err) {
         console.error('Erro ao buscar o site do pudim', err);
         setHtml('<p>Erro ao carregar o conteúdo.</p>');
+      } finally {
         setLoading(false);
       }
     };
@@ -34,13 +34,13 @@ export default function PudimPage() {
   if (loading) return <p>Carregando conteúdo do pudim...</p>;
 
   return (
-  <PudimSection>
-   <PudimCard>
-     <img src="/images/pudim1.jpg" alt="Pudim de leite" />
-     <h3>Pudim de Leite</h3>
-     <p>Clássico, cremoso e irresistível.</p>
-   </PudimCard>
- </PudimSection>
- 
+    <PudimSection>
+      <PudimCard>
+        <img src="/images/pudim1.jpg" alt="Pudim de leite" />
+        <h3>Pudim de Leite</h3>
+        <p>Clássico, cremoso e irresistível.</p>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </PudimCard>
+    </PudimSection>
   );
 }
