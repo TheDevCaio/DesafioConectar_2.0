@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import api from '../services/api';
 import { Button } from '../components/Button';
+import { Container } from '@/components/GlobalStyles';
+import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar';
 
 interface User {
   id: string;
@@ -40,6 +43,8 @@ export const UserProfile: React.FC = () => {
   if (!user) return <div>Carregando perfil...</div>;
 
   return (
+    <Container>
+    <Navbar/>
     <div>
       <h2>Perfil de {user.name}</h2>
       <p>Email: {user.email}</p>
@@ -59,6 +64,8 @@ export const UserProfile: React.FC = () => {
       />
       <Button onClick={handleUpdate}>Atualizar</Button>
     </div>
+    <Footer/>
+    </Container>
   );
 };
 

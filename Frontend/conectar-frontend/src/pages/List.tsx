@@ -1,12 +1,16 @@
 import React from 'react';
 import { UserList } from '../components/UserList';
+import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar';
+import { Container } from '@/components/GlobalStyles';
 
 export const List: React.FC = () => {
   return (
-    <div>
-      <h2>Lista de Usuários</h2>
+      <Container>
+      <Navbar />
       <UserList />
-    </div>
+      <Footer />
+    </Container>
   );
 };
 

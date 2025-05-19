@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 import { useRouter } from 'next/router'; 
-import { Form, Input, Title, SubmitButton } from './styles';
+import { Input, Title, SubmitButton, Form } from './styles';
 
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');

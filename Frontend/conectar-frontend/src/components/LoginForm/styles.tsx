@@ -5,9 +5,10 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 1rem;
   max-width: 400px;
-  margin: 3rem auto;
+  margin: 6rem auto;
+  margin-right: 90vh;
   padding: 2rem;
-  background: #fff5ec;
+  background: #fff3e6;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(80, 49, 30, 0.1);
 `;

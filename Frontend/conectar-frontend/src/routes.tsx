@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import PudimPage from './pages/Pudim';
-import Pudim from './components/Pudim';
+import Pudim from './pages/Pudim';
 
 
 import { UserProfile } from './pages/UserProfile';
