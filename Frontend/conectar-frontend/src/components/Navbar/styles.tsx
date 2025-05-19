@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 
 
-
 export const NavbarContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background:rgb(228, 214, 154);
+  background: rgb(228, 214, 154);
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  position: sticky;
-  margin-top: -1.2vh;
-  left: 0;
   z-index: 1000;
   flex-wrap: wrap;
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 export const LogoContainer = styled.div`
@@ -46,8 +47,8 @@ export const NavArea = styled.div`
 
 export const DesktopNav = styled.div`
   display: flex;
-  gap: 1.5rem;
-
+  gap: 2.5rem;
+  margin-right: -5vw;
   @media (max-width: 746px) {
     display: none;
   }
@@ -58,7 +59,7 @@ export const MobileNav = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 55px;
   right: 0rem;
-  background: #1A73E8;
+  background: rgb(228, 214, 154);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
