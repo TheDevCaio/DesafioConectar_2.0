@@ -53,9 +53,9 @@ export  const Navbar: React.FC = () => {
 
         <MobileNav isOpen={isOpen} ref={menuRef}>
           <NavButton onClick={() => handleNavigate('/Login')}>Home</NavButton>
-          <NavButton onClick={() => handleNavigate('/Register')}>Listar Veículos</NavButton>
-          <NavButton onClick={() => handleNavigate('/UserProfile')}>Salvar Veículos</NavButton>
-                    <NavButton onClick={() => handleNavigate('/List')}>Listar Veículos</NavButton>
+          <NavButton onClick={() => handleNavigate('/Register')}>Registrar</NavButton>
+          <NavButton onClick={() => handleNavigate('/UserProfile')}>Perfil</NavButton>
+                    <NavButton onClick={() => handleNavigate('/List')}>Listar</NavButton>
         </MobileNav>
       </NavArea>
     </NavbarContainer>

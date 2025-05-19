@@ -6,25 +6,23 @@ import { Container } from '@/components/GlobalStyles';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import styled from 'styled-components';
+import { Title } from '@/components/LoginForm/styles';
 
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   max-width: 400px;
-  width: 100%;
-  margin: 2rem auto;
-  background-color: var(--secondary);
+  margin: 6rem auto;
+  margin-right: 90vh;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-  h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--accent);
-  }
-
+  background: #fff3e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(80, 49, 30, 0.1);
+  
+  @media (max-width: 768px) {
+margin-right: 7.3vh;
+}
   input {
     padding: 0.75rem;
     border-radius: 8px;
@@ -38,8 +36,11 @@ const FormContainer = styled.form`
       outline: none;
       border-color: var(--accent);
     }
+
+
   }
 `;
+
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -62,7 +63,7 @@ export default function Register() {
     <Container>
       <Navbar />
       <FormContainer onSubmit={handleSubmit}>
-        <h2>Cadastro</h2>
+        <Title>Cadastro</Title>
         <input
           type="text"
           placeholder="Nome"

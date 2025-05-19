@@ -11,6 +11,10 @@ export const Form = styled.form`
   background: #fff3e6;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(80, 49, 30, 0.1);
+
+  @media (max-width: 768px) {
+margin-right: 7vh;
+}
 `;
 
 export const Title = styled.h2`

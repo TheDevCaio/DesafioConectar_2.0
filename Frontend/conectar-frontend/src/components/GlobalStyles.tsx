@@ -55,4 +55,5 @@ export const Container = styled.div`
   justify-content: center;
   width: 100vw;
 
+min-height: 100vh;
 `;
