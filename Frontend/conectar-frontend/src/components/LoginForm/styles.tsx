@@ -20,6 +20,7 @@ margin-right: 7vh;
 export const Title = styled.h2`
   text-align: center;
   color: #5c3d2e;
+  font-style: italic;
 `;
 
 export const Input = styled.input`

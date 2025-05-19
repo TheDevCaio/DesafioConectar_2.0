@@ -48,12 +48,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-
+background: #f5e5d0;
 min-height: 100vh;
 `;
