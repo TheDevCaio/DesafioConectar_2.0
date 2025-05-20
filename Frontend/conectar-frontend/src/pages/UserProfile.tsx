@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 
 interface User {
-  id: string;
+  id: number;
   name: string;
   email: string;
   createdAt: string;

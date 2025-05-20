@@ -1,38 +1,33 @@
-import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { Repository } from 'typeorm';
-
 import { InjectRepository } from '@nestjs/typeorm';
+import * as bcrypt from 'bcrypt';
+
+import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import * as bcrypt from 'bcrypt';
-import { Role, User } from './entities/user.entity';
+import { Role } from '../common/enums/role.enum';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    private readonly usersRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto): Promise<User> {
-    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-
-    const user = this.usersRepository.create({
-      ...createUserDto,
-      password: hashedPassword,
-      role: createUserDto.role || Role.USER,
-    });
-    return this.usersRepository.save(user);
-  }
-
-  async findAll(filterRole?: Role, sortBy?: keyof User, order: 'ASC' | 'DESC' = 'ASC'): Promise<User[]> {
+  async findAll(
+    role?: Role,
+    sortBy?: 'name' | 'createdAt' | 'lastLogin',
+    order: 'ASC' | 'DESC' = 'ASC',
+  ): Promise<User[]> {
     const query = this.usersRepository.createQueryBuilder('user');
 
-    if (filterRole) {
-      query.andWhere('user.role = :role', { role: filterRole });
+    if (role) {
+      query.where('user.role = :role', { role });
     }
 
-    if (sortBy && ['name', 'createdAt'].includes(sortBy)) {
+    if (sortBy) {
+
       query.orderBy(`user.${sortBy}`, order);
     }
 
@@ -40,28 +35,59 @@ export class UsersService {
   }
 
   async findOne(id: number): Promise<User> {
-    const user = await this.usersRepository.findOneBy({ id });
+    const user = await this.usersRepository.findOne({ where: { id } });
     if (!user) {
-      throw new NotFoundException(`User with id ${id} not found.`);
+      throw new NotFoundException('User not found');
     }
     return user;
   }
 
-  async findByEmail(email: string): Promise<User | null> {
-    return this.usersRepository.findOneBy({ email });
+  async create(createUserDto: CreateUserDto): Promise<User> {
+
+    const existingUser = await this.usersRepository.findOne({
+      where: { email: createUserDto.email },
+    });
+    if (existingUser) {
+      throw new BadRequestException('Email already in use');
+    }
+
+    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+
+    const user = this.usersRepository.create({
+      ...createUserDto,
+      password: hashedPassword,
+      role: createUserDto.role || Role.USER,
+
+    });
+
+    return this.usersRepository.save(user);
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto, requester: User): Promise<User> {
+  async update(
+    id: number,
+    updateUserDto: UpdateUserDto,
+    requesterUser: User,
+  ): Promise<User> {
     const user = await this.findOne(id);
 
-    // Só admin pode editar outro usuário
-    // Usuário comum só pode editar ele mesmo
-    if (requester.role !== Role.ADMIN && requester.id !== user.id) {
-      throw new ForbiddenException('You do not have permission to update this user.');
+    if (requesterUser.role !== Role.ADMIN && requesterUser.id !== id) {
+      throw new BadRequestException('Access denied');
+    }
+
+    if (updateUserDto.email && updateUserDto.email !== user.email) {
+ 
+      const emailExists = await this.usersRepository.findOne({
+        where: { email: updateUserDto.email },
+      });
+      if (emailExists) {
+        throw new BadRequestException('Email already in use');
+      }
     }
 
     if (updateUserDto.password) {
       updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
+    } else {
+      delete updateUserDto.password; 
     }
 
     Object.assign(user, updateUserDto);
@@ -69,13 +95,14 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
-  async remove(id: number, requester: User): Promise<void> {
-    const user = await this.findOne(id);
-
-    if (requester.role !== Role.ADMIN) {
-      throw new ForbiddenException('Only admins can delete users.');
+  async remove(id: number, requesterUser: User): Promise<void> {
+    if (requesterUser.role !== Role.ADMIN && requesterUser.id !== id) {
+      throw new BadRequestException('Access denied');
     }
-
     await this.usersRepository.delete(id);
+  }
+
+  async updateLastLogin(id: number): Promise<void> {
+    await this.usersRepository.update(id, { lastLogin: new Date() });
   }
 }

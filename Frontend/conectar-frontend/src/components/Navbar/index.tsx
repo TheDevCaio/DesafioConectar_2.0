@@ -43,7 +43,7 @@ export  const Navbar: React.FC = () => {
 
       <NavArea>
         <DesktopNav>
-          <NavButton onClick={() => handleNavigate('/Login')}>Home</NavButton>
+          <NavButton onClick={() => handleNavigate('/Login')}>Login</NavButton>
           <NavButton onClick={() => handleNavigate('/Register')}>Registrar</NavButton>
           <NavButton onClick={() => handleNavigate('/UserProfile')}>Perfil</NavButton>
                     <NavButton onClick={() => handleNavigate('/List')}>Listar</NavButton>
@@ -52,7 +52,7 @@ export  const Navbar: React.FC = () => {
         <MenuIcon onClick={toggleMobileMenu} ref={iconRef}>☰</MenuIcon>
 
         <MobileNav isOpen={isOpen} ref={menuRef}>
-          <NavButton onClick={() => handleNavigate('/Login')}>Home</NavButton>
+          <NavButton onClick={() => handleNavigate('/Login')}>Login</NavButton>
           <NavButton onClick={() => handleNavigate('/Register')}>Registrar</NavButton>
           <NavButton onClick={() => handleNavigate('/UserProfile')}>Perfil</NavButton>
                     <NavButton onClick={() => handleNavigate('/List')}>Listar</NavButton>

@@ -46,14 +46,15 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState<'user' | 'admin'>('user');
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await api.post('/auth/register', { name, email, password });
+    await api.put('/users/profile', { name, password: password || undefined });
       alert('Cadastro realizado com sucesso!');
-      router.push('/login');
+      router.push('/Login');
     } catch {
       alert('Erro ao cadastrar');
     }
@@ -85,6 +86,10 @@ export default function Register() {
           onChange={e => setPassword(e.target.value)}
           required
         />
+        <select value={role} onChange={e => setRole(e.target.value as 'user' | 'admin')}>
+        <option value="user">Usuário</option>
+        <option value="admin">Administrador</option>
+      </select>
         <Button type="submit">Cadastrar</Button>
       </FormContainer>
       <Footer />

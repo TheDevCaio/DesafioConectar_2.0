@@ -62,7 +62,12 @@ background: #f5e5d0;
 min-height: 100vh;
 
 
-@media (max-width: 768px) {
 margin-left: -1.6vw;
-}
 `;
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role?: 'admin' | 'user';
+};

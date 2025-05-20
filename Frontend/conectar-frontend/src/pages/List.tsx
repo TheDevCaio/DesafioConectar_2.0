@@ -1,14 +1,24 @@
-import React from 'react';
-import { UserList } from '../components/UserList';
+import React, { useState } from 'react';
+
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
-import { Container } from '@/components/GlobalStyles';
+import { Container, User } from '@/components/GlobalStyles';
+import { UserList } from '@/components/UserList';
+
+
+
 
 export const List: React.FC = () => {
+  const [editingUser, setEditingUser] = useState<User | null>(null);
+  const [refresh, setRefresh] = useState(false);
+
   return (
-      <Container>
+    <Container>
       <Navbar />
-      <UserList />
+      <UserList
+        key={refresh ? 'refresh1' : 'refresh2'}
+        onEdit={(user) => setEditingUser(user)}
+      />
       <Footer />
     </Container>
   );
