@@ -11,4 +11,7 @@ export const databaseConfig = (): TypeOrmModuleOptions => ({
   entities: [User],
   synchronize: true,
   logging: false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
