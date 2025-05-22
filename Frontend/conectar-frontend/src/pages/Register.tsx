@@ -21,26 +21,35 @@ const FormContainer = styled.form`
   box-shadow: 0 4px 8px rgba(80, 49, 30, 0.1);
   
   @media (max-width: 768px) {
-margin-right: 7.3vh;
-}
-  input {
+    margin-right: 7.3vh;
+  }
+
+  input, select {
     padding: 0.75rem;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1rem;
     background-color: #fff;
     color: var(--text-dark);
-    transition: border 0.2s;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    appearance: none; /* remove seta padrão em alguns browsers */
+    cursor: pointer;
+  }
 
-    &:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 5px var(--accent);
+  }
+    
+  select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 6px;
   }
 `;
-
 
 export default function Register() {
   const [name, setName] = useState('');
