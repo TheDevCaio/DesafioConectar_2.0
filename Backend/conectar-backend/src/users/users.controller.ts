@@ -11,8 +11,9 @@ import {
   UseGuards,
   Request,
   ForbiddenException,
+  NotFoundException,
 } from '@nestjs/common';
-
+import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -25,6 +26,7 @@ import { Role } from '../common/enums/role.enum';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   findAll(
     @Query('role') role?: Role,
@@ -39,14 +41,19 @@ export class UsersController {
 
     return this.usersService.findAll(role, sortField, orderDirection);
   }
-
-  @UseGuards(JwtAuthGuard)
+  
+  @UseGuards(AuthGuard('jwt'))
   @Get('profile')
   async getProfile(@Request() req) {
-    return this.usersService.findOne(req.user.id);
-  }
+    const user = await this.usersService.findById(req.user.id);
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+    const { password, ...userWithoutPassword } = user;
+    return userWithoutPassword;
+    }
 
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(AuthGuard('jwt'))
   @Put('profile')
   async updateProfile(@Request() req, @Body() body: { name: string; password?: string }) {
     return this.usersService.update(req.user.id, body, req.user);

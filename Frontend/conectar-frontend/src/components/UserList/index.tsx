@@ -44,12 +44,14 @@ export const UserList: React.FC<Props> = ({ onEdit }) => {
   if (error) return <div>{error}</div>;
 
   return (
-    <Container>
-      {users.map(user => (
-        <UserItem key={user.id} onClick={() => onEdit(user)}>
-          <strong>{user.name}</strong> ({user.email}) - {user.role}
-        </UserItem>
-      ))}
-    </Container>
-  );
-};
+  <Container>
+    {users.map(user => (
+      <UserItem key={user.id} onClick={() => onEdit(user)}>
+        <div><strong>Nome:</strong> {user.name}</div>
+        <div><strong>Email:</strong> {user.email}</div>
+        <div><strong>Função:</strong> {user.role}</div>
+      </UserItem>
+    ))}
+  </Container>
+);
+}

@@ -42,6 +42,10 @@ export class UsersService {
     return user;
   }
 
+ async findById(id: number): Promise<User | null> {
+  return this.usersRepository.findOneBy({ id });
+  }
+
   async create(createUserDto: CreateUserDto): Promise<User> {
 
     const existingUser = await this.usersRepository.findOne({
@@ -105,4 +109,5 @@ export class UsersService {
   async updateLastLogin(id: number): Promise<void> {
     await this.usersRepository.update(id, { lastLogin: new Date() });
   }
+
 }
