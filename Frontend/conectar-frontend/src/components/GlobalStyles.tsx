@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --primary: #d88c51; /* cor caramelo pudim */
+    --primary: #d88c51; 
     --secondary: #fff1e5;
     --accent: #a35a2a;
     --text-dark: #3e2f1c;
@@ -17,6 +17,8 @@ export const GlobalStyles = createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+      margin: 0;
+  padding: 0;
   }
 
   body {
@@ -49,6 +51,7 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -57,4 +60,14 @@ export const Container = styled.div`
   width: 100vw;
 background: #f5e5d0;
 min-height: 100vh;
+
+
+margin-left: -1.6vw;
 `;
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role?: 'admin' | 'user';
+};
