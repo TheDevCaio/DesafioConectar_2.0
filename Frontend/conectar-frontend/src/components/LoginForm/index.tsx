@@ -16,9 +16,9 @@ export const LoginForm: React.FC = () => {
       const userRole = response.data.user.role;
 
       if (userRole === 'admin') {
-        router.push('/Pudim');  
+        router.push('/UserList');  
       } else {
-        router.push('/Pudim');
+        router.push('/UserList');
       }
     } catch {
       alert('Falha no login');
