@@ -11,6 +11,7 @@ git clone https://github.com/TheDevCaio/DesafioConectar_2.0.git
 Backend: cd Backend/conectar-backend 
 Frontend: cd Frontend/conectar-frontend
 
+Frotend:
 yarn install
 Rode a aplicação em modo desenvolvimento:
 
@@ -18,6 +19,11 @@ yarn dev
 Para buildar para produção:
 
 yarn build
+
+Backend:
+yarn install
+
+nest start
 
 # Sobre o Projeto
 Conéctar é um sistema full-stack para gerenciamento de usuários, desenvolvido com NestJS no backend e ReactJS no frontend, ambos usando TypeScript. O sistema permite cadastro, login com autenticação JWT, gerenciamento de perfis, controle de acesso baseado em roles (admin e usuário comum) e operações CRUD para usuários.
@@ -39,6 +45,8 @@ Swagger para documentação da API
 Jest para testes automatizados
 
 # Frontend
+
+Next
 
 ReactJS
 
